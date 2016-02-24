@@ -1,0 +1,36 @@
+To install httpd2.4
+http://unix.stackexchange.com/questions/138899/centos-install-using-yum-apache-2-4
+
+===============================================================================================================================================
+To install mysql from mysql site using yum
+===============================================================================================================================================
+
+Download yum repo from mysql
+#wget http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
+
+install repowatch mysqladmin pr -h 10.0.0.30 -u albasco -p"dw4802aK0EHghf8FZPQqTdSuX5J666bg"
+#rpm -Uvh mysql-community-release-el6-5.noarch.rpm
+
+before installing mysql server update repolist
+#yum repolist
+
+update system before mysql installation
+#yum update
+
+Install mysql-comunity-server
+#yum install mysql-community-server
+
+Start Mysqld deamon
+#service mysqld start
+
+check status of Mysql deamon
+#service mysqld status
+
+secure Mysql server setting root password
+#mysql_secure_installation
+
+checkconfig Mysql server
+#chkconfig mysqld on
+
+===============================================================================================================================================
+
