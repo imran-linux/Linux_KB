@@ -1,0 +1,22 @@
+[root@server etc]# grep -ir memory_limit ./
+./php.ini:memory_limit = 8192M
+./csf/csf.logignore:^(\S+|\S+\s+\d+\s+\S+) [^\s\.]+ suhosin\[\d+\]: ALERT - script tried to increase memory_limit
+./csf/changelog.txt:	 memory_limit"
+./php.ini.BACK:memory_limit = 128M
+./php-fpm.d/famifarma.conf:php_admin_value[memory_limit] = 8192M
+./php-fpm.d/vimbadmin.conf:;php_admin_value[memory_limit] = 128M
+./hhvm/server.ini:memory_limit = 256M
+:wq!
+
+
+to increase memory_limit in nginx with php-fpm with apache
+vi /etc/php-fpm.d/famifarma.conf
+then append in the end
+php_admin_value[error_log] = /public_html/var/log/php-fpm-error.log
+php_admin_value[doc_root] = /public_html/
+php_admin_value[open_basedir] = /public_html/
+php_admin_value[cgi.fix_pathinfo] = 0
+php_admin_value[iconv.internal_encoding] = UTF-8
+php_admin_flag[log_errors] = on
+php_admin_value[memory_limit] = 8190M
+
